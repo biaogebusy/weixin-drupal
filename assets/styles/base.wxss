@@ -1,0 +1,182 @@
+.color-default {
+  color: #666;
+}
+
+.color-primary {
+  color: #4e6777;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* space */
+
+.m-top {
+  margin-top: 40rpx;
+}
+
+.m-bottom {
+  margin-bottom: 40rpx;
+}
+
+.m-top-min {
+  margin-top: 20rpx;
+}
+
+.m-bottom-min {
+  margin-bottom: 20rpx;
+}
+
+.m-right {
+  margin-right: 40rpx;
+}
+
+.m-right-min {
+  margin-right: 20rpx;
+}
+
+.p-right {
+  padding-right: 40rpx;
+}
+
+.p-right-min {
+  padding-right: 20rpx;
+}
+
+.p-left {
+  padding-left: 40rpx;
+}
+
+.p-left-min {
+  padding-left: 20rpx;
+}
+
+.p-top {
+  padding-top: 40rpx;
+}
+
+.p-bottom {
+  padding-bottom: 40rpx;
+}
+
+.p-top-min {
+  padding-top: 20rpx;
+}
+
+.p-bottom-min {
+  padding-bottom: 20rpx;
+}
+
+.m-y {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.m-y-min {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.m-x {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.m-x-min {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.p-y {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.p-y-min {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.p-x {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.p-x-min {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+/* display */
+
+.d-b {
+  display: block;
+}
+
+.d-ib {
+  display: inline-block;
+}
+
+.d-i {
+  display: inline;
+}
+
+.d-t {
+  display: table;
+}
+
+.border-shadow {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.border-top {
+  border-width: 0;
+  border-top-width: 1px;
+  border-style: solid;
+}
+
+.border-right {
+  border-width: 0;
+  border-right-width: 1px;
+  border-style: solid;
+}
+
+.border-bottom {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+.border-left {
+  border-width: 0;
+  border-left-width: 1px;
+  border-style: solid;
+}
+
+.border-xy {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.border-x {
+  border-width: 0;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+}
+
+.border-y {
+  border-width: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
