@@ -1,0 +1,15 @@
+<view class='container p-xy-min'>
+  <view wx:for="{{articles}}" wx:key="{{item.id}}" class="list border-bottom border-shadow p-y-min text-default">
+    <view class='list-left'>
+      <h3>{{item.attributes.title}}</h3>
+      <view class='list-info'>
+        {{item.attributes.field_author}}
+        <span>{{item.attributes.changed}}</span>
+      </view>
+    </view>
+    <view class='list-right'>
+      <image src="https://via.placeholder.com/96x60"></image>
+    </view>
+
+  </view>
+</view>

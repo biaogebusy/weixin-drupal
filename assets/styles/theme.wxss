@@ -1,0 +1,25 @@
+
+h1,header-1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0.9em;
+  line-height: 1.4;
+}
+
+h2,header-2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 0.34em;
+  line-height: 1.4;
+}
+
+h3,header-3 {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 0.34em;
+  line-height: 1.4;
+}
+
+p {
+  margin: 0 0 0.8em;
+}

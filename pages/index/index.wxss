@@ -1,0 +1,21 @@
+@import '/assets/styles/index.wxss';
+
+.list {
+  display: flex;
+  align-items: center;
+  place-content: center space-between;
+}
+
+.list .list-left {
+  display: flex;
+  flex-direction: column;
+}
+.list .list-info{
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.list .list-right image {
+  width: 192rpx;
+  height: 120rpx;
+}

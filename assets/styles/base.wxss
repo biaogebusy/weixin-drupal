@@ -1,8 +1,8 @@
-.color-default {
+.text-default {
   color: #666;
 }
 
-.color-primary {
+.text-primary {
   color: #4e6777;
 }
 
@@ -96,6 +96,20 @@
   margin-right: 20rpx;
 }
 
+.m-xy{
+  margin-top: 40rpx;
+  margin-right: 40rpx;
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.m-xy-min{
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+
 .p-y {
   padding-top: 40rpx;
   padding-bottom: 40rpx;
@@ -115,6 +129,22 @@
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
+
+.p-xy{
+  padding-top: 40rpx;
+  padding-right: 40rpx;
+  padding-bottom: 40rpx;
+  padding-left: 40rpx;
+}
+
+.p-xy-min{
+  padding-top: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 20rpx;
+}
+
+
 
 /* display */
 
