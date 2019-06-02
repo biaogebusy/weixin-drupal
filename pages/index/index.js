@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    articles: []
+    articles: [],
+    loading: true
   },
 
   onLoad() {
@@ -21,7 +22,8 @@ Page({
         const articles = res.data.data;
         console.log(articles)
         this.setData({
-          articles: articles
+          articles: articles,
+          loading: false
         })
       }
     })

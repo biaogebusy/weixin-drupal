@@ -1,3 +1,17 @@
+<div wx:if="{{loading}}" class="sk-fading-circle">
+  <div class="sk-circle1 sk-circle"></div>
+  <div class="sk-circle2 sk-circle"></div>
+  <div class="sk-circle3 sk-circle"></div>
+  <div class="sk-circle4 sk-circle"></div>
+  <div class="sk-circle5 sk-circle"></div>
+  <div class="sk-circle6 sk-circle"></div>
+  <div class="sk-circle7 sk-circle"></div>
+  <div class="sk-circle8 sk-circle"></div>
+  <div class="sk-circle9 sk-circle"></div>
+  <div class="sk-circle10 sk-circle"></div>
+  <div class="sk-circle11 sk-circle"></div>
+  <div class="sk-circle12 sk-circle"></div>
+</div>
 <view class='container p-xy-min'>
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="list border-bottom border-shadow p-y-min text-default">
     <view class='list-left'>
@@ -10,6 +24,5 @@
     <view class='list-right'>
       <image src="https://via.placeholder.com/96x60"></image>
     </view>
-
   </view>
 </view>
