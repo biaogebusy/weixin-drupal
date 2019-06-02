@@ -27,5 +27,11 @@ Page({
         })
       }
     })
+  },
+
+  onTabNode(){
+    wx.navigateTo({
+      url: '/pages/node/node?id=9773b464-6141-43d4-b32e-67eaa41acf15',
+    })
   }
 })
