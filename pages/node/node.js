@@ -6,7 +6,8 @@ Page({
    */
   data: {
     id: '',
-    node: {}
+    node: {},
+    date: ''
   },
 
   /**
@@ -29,8 +30,12 @@ Page({
       success: (res) => {
         console.log(res)
         const node = res.data.data.attributes;
+        const date = new Date(node.changed);
+        const hours = date.getHours();
+        console.log(hours)
         this.setData({
-          node: node
+          node: node,
+          date: `${date.getUTCHours()}:${date.getMinutes()}`
         })
       }
     })

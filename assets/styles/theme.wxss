@@ -4,6 +4,7 @@ h1,header-1 {
   font-weight: 700;
   margin-bottom: 0.9em;
   line-height: 1.4;
+  display: block;
 }
 
 h2,header-2 {
@@ -11,6 +12,7 @@ h2,header-2 {
   font-weight: 700;
   margin-bottom: 0.34em;
   line-height: 1.4;
+  display: block;
 }
 
 h3,header-3 {
@@ -18,12 +20,20 @@ h3,header-3 {
   font-size: 15px;
   margin-bottom: 0.34em;
   line-height: 1.4;
+  display: block;
 }
 
 p {
   margin: 0 0 0.8em;
+  display: block;
 }
 
 a{
   color: #576b95;
+}
+
+page{
+  font-size: 32rpx;
+  line-height: 1.4;
+  color: #353535;
 }

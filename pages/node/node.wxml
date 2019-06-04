@@ -1,6 +1,6 @@
-<view class='p-xy-min'>
+<view class='node p-xy-min'>
   <h1>{{node.title}}</h1>
-  {{node.changed}}{{node.field_author}}
-  <image src="https://via.placeholder.com/750x560"></image>
+  <p class="m-y text-light">{{node.field_author}} {{date}}</p>
+  <image class='thumb' src="https://via.placeholder.com/750x560"></image>
   <rich-text nodes="{{node.body.value}}"></rich-text>
 </view>

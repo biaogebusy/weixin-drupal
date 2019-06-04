@@ -20,7 +20,7 @@ Page({
       },
       success: (res) => {
         const articles = res.data.data;
-        // console.log(articles)
+        console.log(articles)
         this.setData({
           articles: articles,
           loading: false
