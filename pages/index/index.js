@@ -20,7 +20,7 @@ Page({
       },
       success: (res) => {
         const articles = res.data.data;
-        console.log(articles)
+        // console.log(articles)
         this.setData({
           articles: articles,
           loading: false
@@ -29,9 +29,10 @@ Page({
     })
   },
 
-  onTabNode(){
+  onTabNode(event){
+    const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/node/node?id=9773b464-6141-43d4-b32e-67eaa41acf15',
+      url: `/pages/node/node?id=${id}`,
     })
   }
 })

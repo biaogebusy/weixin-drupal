@@ -4,10 +4,10 @@
     "pages/node/node"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#576b95",
     "navigationBarTitleText": "Drupal 推荐",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"
