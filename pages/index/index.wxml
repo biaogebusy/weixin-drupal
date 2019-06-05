@@ -13,6 +13,9 @@
   <div class="sk-circle12 sk-circle"></div>
 </div>
 <view class='container p-xy-min'>
+  <view class='stiky'>
+    <h2>{{stiky.attributes.title}}</h2>
+  </view>
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="list border-bottom border-shadow p-y-min text-default" bindtap="onTabNode" data-id="{{item.id}}">
     <view class='list-left'>
       <h3>{{item.attributes.title}}</h3>

@@ -5,7 +5,8 @@ const app = getApp()
 Page({
   data: {
     articles: [],
-    loading: true
+    loading: true,
+    stiky: {}
   },
 
   onLoad() {
@@ -24,8 +25,17 @@ Page({
         this.setData({
           articles: articles,
           loading: false
-        })
+        });
+        this.getStiky();
       }
+    })
+  },
+
+  getStiky(){
+    const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
+    console.log(stikyArticles)
+    this.setData({
+      stiky: stikyArticles[0]
     })
   },
 
