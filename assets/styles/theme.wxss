@@ -36,4 +36,5 @@ page{
   font-size: 32rpx;
   line-height: 1.4;
   color: #353535;
+  padding-bottom: 100rpx;
 }

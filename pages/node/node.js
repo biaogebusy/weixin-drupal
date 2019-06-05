@@ -1,4 +1,5 @@
-// pages/node/node.js
+var WxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -37,6 +38,8 @@ Page({
           node: node,
           date: `${date.getUTCHours()}:${date.getMinutes()}`
         })
+
+        WxParse.wxParse('article', 'html', node.body.value, this, 5)
       }
     })
   },

@@ -15,7 +15,12 @@
   line-height: 1.4;
 }
 
+.list .list-right{
+  width: 182rpx;
+  flex: 0 0 96px;
+}
+
 .list .list-right image {
-  width: 192rpx;
+  width: 182rpx;
   height: 120rpx;
 }
