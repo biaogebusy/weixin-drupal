@@ -13,8 +13,14 @@
   <div class="sk-circle12 sk-circle"></div>
 </div>
 <view class='container p-xy-min'>
-  <view class='stiky'>
-    <h2>{{stiky.attributes.title}}</h2>
+  <view wx:if="{{stiky.attributes}}" class='stiky'>
+    <view class='badge position-absolute text-white'>热门</view>
+    <image class='border-radius' src="https://via.placeholder.com/350x176"></image>
+    <view class='stiky-inner p-xy-min position-absolute'>
+      <h2 class="text-white">{{stiky.attributes.title}}</h2>
+      <view class='text-light'>{{stiky.attributes.field_author}} {{stiky.attributes.changed}}</view>
+    </view>
+    <!-- 350x176 -->
   </view>
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="list border-bottom border-shadow p-y-min text-default" bindtap="onTabNode" data-id="{{item.id}}">
     <view class='list-left'>
@@ -25,7 +31,7 @@
       </view>
     </view>
     <view class='list-right'>
-      <image src="https://via.placeholder.com/96x60"></image>
+      <image class='border-radius' src="https://via.placeholder.com/96x60"></image>
     </view>
   </view>
 </view>
