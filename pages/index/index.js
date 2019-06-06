@@ -6,7 +6,8 @@ Page({
   data: {
     articles: [],
     loading: true,
-    stiky: {}
+    stiky: {},
+    stikyDate: ''
   },
 
   onLoad() {
@@ -33,9 +34,11 @@ Page({
 
   getStiky(){
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
-    console.log(stikyArticles)
+    console.log(stikyArticles);
+    const date = new Date(stikyArticles[0].attributes.changed);
     this.setData({
-      stiky: stikyArticles[0]
+      stiky: stikyArticles[0],
+      stikyDate: `${date.getUTCHours()}:${date.getMinutes()}`
     })
   },
 

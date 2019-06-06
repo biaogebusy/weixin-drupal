@@ -32,8 +32,6 @@ Page({
         console.log(res)
         const node = res.data.data.attributes;
         const date = new Date(node.changed);
-        const hours = date.getHours();
-        console.log(hours)
         this.setData({
           node: node,
           date: `${date.getUTCHours()}:${date.getMinutes()}`
