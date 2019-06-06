@@ -4,7 +4,7 @@
     "pages/node/node"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#09bb07",
     "navigationBarTitleText": "Drupal 推荐",
     "navigationBarTextStyle": "white",

@@ -10,11 +10,17 @@ Page({
     stikyDate: ''
   },
 
+  onPullDownRefresh(){
+    this.getArticles(()=>{
+      wx.stopPullDownRefresh();
+    })
+  },
+
   onLoad() {
     this.getArticles();
   },
 
-  getArticles() {
+  getArticles(callBack) {
     wx.request({
       url: 'https://api.zhaobg.com/jsonapi/node/article',
       header: {
@@ -28,6 +34,9 @@ Page({
           loading: false
         });
         this.getStiky();
+      },
+      complete: ()=>{
+        callBack && callBack();
       }
     })
   },

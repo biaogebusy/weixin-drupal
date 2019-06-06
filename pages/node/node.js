@@ -11,6 +11,12 @@ Page({
     date: ''
   },
 
+  onPullDownRefresh(){
+    this.getNode(this.data.id, ()=>{
+      wx.stopPullDownRefresh()
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,7 +28,7 @@ Page({
     this.getNode(this.data.id)
   },
 
-  getNode(id) {
+  getNode(id, callBack) {
     wx.request({
       url: `https://api.zhaobg.com/jsonapi/node/article/${id}`,
       header: {
@@ -36,8 +42,10 @@ Page({
           node: node,
           date: `${date.getUTCHours()}:${date.getMinutes()}`
         })
-
         WxParse.wxParse('article', 'html', node.body.value, this, 5)
+      },
+      complete: ()=>{
+        callBack && callBack();
       }
     })
   },

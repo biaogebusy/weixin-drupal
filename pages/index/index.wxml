@@ -18,7 +18,7 @@
     <image class='border-radius' src="https://via.placeholder.com/350x176"></image>
     <view class='stiky-inner p-xy-min position-absolute'>
       <h2 class="text-white" bindtap="onTabNode" data-id="{{stiky.id}}">{{stiky.attributes.title}}</h2>
-      <view class='text-light'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
+      <view class='stiky-inner-footer'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
     </view>
   </view>
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="list border-bottom border-shadow p-y-min text-default" bindtap="onTabNode" data-id="{{item.id}}">
