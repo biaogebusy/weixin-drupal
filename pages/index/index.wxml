@@ -15,7 +15,8 @@
 <view class='container p-xy-min'>
   <view wx:if="{{stiky.attributes}}" class='stiky'>
     <view class='badge position-absolute text-white'>热门</view>
-    <image class='border-radius' src="{{bannerImgSrc}}"></image>
+    <image wx:if="{{imagesList[stiky.relationships.field_image.data.id]}}" class='border-radius' src="{{imagesList[stiky.relationships.field_image.data.id]}}"></image>
+    <image wx:if="{{!imagesList[stiky.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
     <view class='stiky-inner p-xy-min position-absolute'>
       <h2 class="text-white" bindtap="onTabNode" data-id="{{stiky.id}}">{{stiky.attributes.title}}</h2>
       <view class='stiky-inner-footer'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
@@ -30,7 +31,8 @@
       </view>
     </view>
     <view class='list-right'>
-      <image class='border-radius' src="https://via.placeholder.com/96x60"></image>
+      <image wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
+      <image wx:if="{{!imagesList[item.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
     </view>
   </view>
 </view>

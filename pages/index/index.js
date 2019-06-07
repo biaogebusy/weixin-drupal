@@ -6,6 +6,7 @@ Page({
   data: {
     bannerImgSrc: '/assets/images/banner-default.jpg',
     articles: [],
+    imagesList: [],
     loading: true,
     stiky: {},
     stikyDate: ''
@@ -23,13 +24,26 @@ Page({
 
   getArticles(callBack) {
     wx.request({
-      url: 'https://api.zhaobg.com/jsonapi/node/article',
+      url: 'https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,sticky,changed,body,field_image&include=field_image&sort=-changed',
       header: {
         Accept: 'application/vnd.api+json'
       },
       success: (res) => {
         const articles = res.data.data;
         console.log(articles)
+        
+        // get images
+        console.log(res)
+        if(res.data.included){
+          let myObj = {};
+          const imagesList = res.data.included.map(function(obj){
+            myObj[obj.id]=`https://api.zhaobg.com${obj.attributes.uri.url}`;
+          })
+          this.setData({
+            imagesList: myObj
+          })
+          console.log(this.data.imagesList)
+        }
         this.setData({
           articles: articles,
           loading: false
