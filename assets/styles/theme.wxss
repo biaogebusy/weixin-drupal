@@ -1,5 +1,4 @@
-
-h1,header-1 {
+h1, header-1 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 0.9em;
@@ -7,7 +6,7 @@ h1,header-1 {
   display: block;
 }
 
-h2,header-2 {
+h2, header-2 {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 0.34em;
@@ -15,7 +14,7 @@ h2,header-2 {
   display: block;
 }
 
-h3,header-3 {
+h3, header-3 {
   font-weight: 700;
   font-size: 15px;
   margin-bottom: 0.34em;
@@ -23,20 +22,24 @@ h3,header-3 {
   display: block;
 }
 
-p,.wxParse-p {
+p, .wxParse-p {
   margin: 0 0 0.8em;
   display: block;
   font-weight: normal;
   opacity: 0.95;
 }
 
-a{
+a {
   color: #576b95;
 }
 
-page{
+image {
+  max-width: 100%;
+}
+
+page {
   font-size: 32rpx;
   line-height: 1.4;
-  color: #333333;
+  color: #333;
   padding-bottom: 100rpx;
 }
