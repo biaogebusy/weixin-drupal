@@ -19,6 +19,7 @@
 .list .list-right {
   width: 182rpx;
   flex: 0 0 96px;
+  line-height: 0;
 }
 
 .list .list-right image {

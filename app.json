@@ -5,9 +5,9 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#09bb07",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Drupal 推荐",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"

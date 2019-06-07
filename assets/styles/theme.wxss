@@ -23,9 +23,11 @@ h3,header-3 {
   display: block;
 }
 
-p {
+p,.wxParse-p {
   margin: 0 0 0.8em;
   display: block;
+  font-weight: normal;
+  opacity: 0.95;
 }
 
 a{
@@ -35,6 +37,6 @@ a{
 page{
   font-size: 32rpx;
   line-height: 1.4;
-  color: #353535;
+  color: #333333;
   padding-bottom: 100rpx;
 }
