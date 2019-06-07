@@ -7,6 +7,7 @@ Page({
    */
   data: {
     id: '',
+    banner: '/assets/images/banner-default.jpg',
     node: {},
     date: ''
   },
@@ -21,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
       id: options.id
     })
@@ -30,15 +31,17 @@ Page({
 
   getNode(id, callBack) {
     wx.request({
-      url: `https://api.zhaobg.com/jsonapi/node/article/${id}`,
+      url: `https://api.zhaobg.com/jsonapi/node/article/${id}?include=field_image`,
       header: {
         Accept: 'application/vnd.api+json'
       },
       success: (res) => {
         console.log(res)
         const node = res.data.data.attributes;
+        const banner = res.data.included[0].attributes.uri.url;
         const date = new Date(node.changed);
         this.setData({
+          banner: `https://api.zhaobg.com${banner}`,
           node: node,
           date: `${date.getUTCHours()}:${date.getMinutes()}`
         })

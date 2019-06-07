@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    bannerImgSrc: '/assets/images/banner-default.jpg',
     articles: [],
     loading: true,
     stiky: {},
@@ -34,6 +35,9 @@ Page({
           loading: false
         });
         this.getStiky();
+      },
+      fail: err =>{
+        console.log('Api fetch fail!')
       },
       complete: ()=>{
         callBack && callBack();

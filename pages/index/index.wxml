@@ -15,7 +15,7 @@
 <view class='container p-xy-min'>
   <view wx:if="{{stiky.attributes}}" class='stiky'>
     <view class='badge position-absolute text-white'>热门</view>
-    <image class='border-radius' src="https://via.placeholder.com/350x176"></image>
+    <image class='border-radius' src="{{bannerImgSrc}}"></image>
     <view class='stiky-inner p-xy-min position-absolute'>
       <h2 class="text-white" bindtap="onTabNode" data-id="{{stiky.id}}">{{stiky.attributes.title}}</h2>
       <view class='stiky-inner-footer'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
