@@ -4,6 +4,5 @@
   <h1>{{node.title}}</h1>
   <p class="m-y text-light">{{node.field_author}} {{date}}</p>
   <image class='thumb' src="{{banner}}"></image>
-  <!-- <rich-text nodes="{{node.body.value}}"></rich-text> -->
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>

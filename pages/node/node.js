@@ -7,13 +7,13 @@ Page({
    */
   data: {
     id: '',
-    banner: '/assets/images/banner-default.jpg',
+    banner: '',
     node: {},
     date: ''
   },
 
-  onPullDownRefresh(){
-    this.getNode(this.data.id, ()=>{
+  onPullDownRefresh() {
+    this.getNode(this.data.id, () => {
       wx.stopPullDownRefresh()
     })
   },
@@ -36,18 +36,23 @@ Page({
         Accept: 'application/vnd.api+json'
       },
       success: (res) => {
-        console.log(res)
+        console.log(res);
         const node = res.data.data.attributes;
-        const banner = res.data.included[0].attributes.uri.url;
+        let banner = '';
+        if (res.data.included && res.data.included[0]) {
+          banner = `https://api.zhaobg.com${res.data.included[0].attributes.uri.url}`
+        }else{
+          banner = '/assets/images/banner-default.jpg'
+        };
         const date = new Date(node.changed);
         this.setData({
-          banner: `https://api.zhaobg.com${banner}`,
+          banner: `${banner}`,
           node: node,
           date: `${date.getUTCHours()}:${date.getMinutes()}`
         })
         WxParse.wxParse('article', 'html', node.body.value, this, 5)
       },
-      complete: ()=>{
+      complete: () => {
         callBack && callBack();
       }
     })
