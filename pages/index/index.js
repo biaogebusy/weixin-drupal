@@ -24,7 +24,7 @@ Page({
 
   getArticles(callBack) {
     wx.request({
-      url: 'https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,sticky,changed,body,field_image&include=field_image&sort=-changed',
+      url: 'https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_type,sticky,changed,body,field_image&include=field_image&sort=-changed',
       header: {
         Accept: 'application/vnd.api+json'
       },
