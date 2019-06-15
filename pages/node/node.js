@@ -1,3 +1,4 @@
+const ArticleService = require('../../utils/service/article.js');
 var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
@@ -30,31 +31,22 @@ Page({
   },
 
   getNode(id, callBack) {
-    wx.request({
-      url: `https://api.zhaobg.com/jsonapi/node/article/${id}?include=field_image`,
-      header: {
-        Accept: 'application/vnd.api+json'
-      },
-      success: (res) => {
-        console.log(res);
-        const node = res.data.data.attributes;
-        let banner = '';
-        if (res.data.included && res.data.included[0]) {
-          banner = `https://api.zhaobg.com${res.data.included[0].attributes.uri.url}`
-        }else{
-          banner = '/assets/images/banner-default.jpg'
-        };
-        const date = new Date(node.changed);
-        this.setData({
-          banner: `${banner}`,
-          node: node,
-          date: `${date.getUTCHours()}:${date.getMinutes()}`
-        })
-        WxParse.wxParse('article', 'html', node.body.value, this, 5)
-      },
-      complete: () => {
-        callBack && callBack();
-      }
+    ArticleService.getData(`https://api.zhaobg.com/jsonapi/node/article/${id}?include=field_image`, callBack).then(res=>{
+      console.log(res)
+      const node = res.data.attributes;
+      let banner = '';
+      if (res.included && res.included[0]) {
+        banner = `https://api.zhaobg.com${res.included[0].attributes.uri.url}`
+      } else {
+        banner = '/assets/images/banner-default.jpg'
+      };
+      const date = new Date(node.changed);
+      this.setData({
+        banner: `${banner}`,
+        node: node,
+        date: `${date.getUTCHours()}:${date.getMinutes()}`
+      })
+      WxParse.wxParse('article', 'html', node.body.value, this, 5)
     })
   },
 

@@ -24,7 +24,7 @@ Page({
   },
 
   getArticles(callBack) {
-    ArticleService.getArticles('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',callBack).then(res =>{
+    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',callBack).then(res =>{
        console.log(res);
        if (res.included) {
          let myObj = {};

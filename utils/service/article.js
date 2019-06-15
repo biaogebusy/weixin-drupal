@@ -1,4 +1,4 @@
-const getArticles = (url, callBack) => {
+const getData = (url, callBack) => {
   return new Promise(function(resolve, reject){
     wx.request({
       url: url,
@@ -22,5 +22,5 @@ const getArticles = (url, callBack) => {
 
 
 module.exports = {
-  getArticles: getArticles
+  getData: getData
 }
