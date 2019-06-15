@@ -1,4 +1,4 @@
-//index.js
+const ArticleService = require('../../utils/service/article.js');
 //获取应用实例
 const app = getApp()
 
@@ -24,41 +24,26 @@ Page({
   },
 
   getArticles(callBack) {
-    wx.request({
-      url: 'https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',
-      header: {
-        Accept: 'application/vnd.api+json'
-      },
-      success: (res) => {
-        const articles = res.data.data;
-        console.log(articles)
-        
-        // get images
-        console.log(res)
-        if(res.data.included){
-          let myObj = {};
-          const imagesList = res.data.included.map(function(obj){
-            myObj[obj.id]=`https://api.zhaobg.com${obj.attributes.uri.url}`;
-          })
-          this.setData({
-            imagesList: myObj
-          })
-          console.log(this.data.imagesList)
-        }
-        this.setData({
-          articles: articles,
-          loading: false
-        });
-        this.setStiky();
-        this.setArticleType();
-      },
-      fail: err =>{
-        console.log('Api fetch fail!')
-      },
-      complete: ()=>{
-        callBack && callBack();
-      }
-    })
+    ArticleService.getArticles('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',callBack).then(res =>{
+       console.log(res);
+       if (res.included) {
+         let myObj = {};
+         const imagesList = res.included.map(function (obj) {
+           myObj[obj.id] = `https://api.zhaobg.com${obj.attributes.uri.url}`;
+         })
+         this.setData({
+           imagesList: myObj
+         })
+         console.log(this.data.imagesList)
+       }
+       const articles = res.data;
+       this.setData({
+         articles: articles,
+         loading: false
+       });
+       this.setStiky();
+       this.setArticleType();
+     });
   },
  
   setArticleType(){
