@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/node/node"
+    "pages/node/node",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "dark",

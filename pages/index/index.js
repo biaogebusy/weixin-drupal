@@ -6,6 +6,7 @@ Page({
   data: {
     bannerImgSrc: '/assets/images/banner-default.jpg',
     articles: [],
+    articleType:[],
     imagesList: [],
     loading: true,
     stiky: {},
@@ -24,7 +25,7 @@ Page({
 
   getArticles(callBack) {
     wx.request({
-      url: 'https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_type,sticky,changed,body,field_image&include=field_image&sort=-changed',
+      url: 'https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',
       header: {
         Accept: 'application/vnd.api+json'
       },
@@ -48,7 +49,8 @@ Page({
           articles: articles,
           loading: false
         });
-        this.getStiky();
+        this.setStiky();
+        this.setArticleType();
       },
       fail: err =>{
         console.log('Api fetch fail!')
@@ -58,8 +60,25 @@ Page({
       }
     })
   },
+ 
+  setArticleType(){
+    const articleType = [];
+    this.data.articles.forEach(function(article){
+      const types =  article.attributes.field_type;
+      if (types.length > 0){
+        types.forEach(function(type){
+          if (articleType.indexOf(type) == -1){
+            articleType.push(type)
+          }
+        })
+      }
+    })
+    this.setData({
+      articleType: articleType
+    })
+  },
 
-  getStiky(){
+  setStiky(){
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
     console.log(stikyArticles);
     const date = new Date(stikyArticles[0].attributes.changed);
@@ -69,10 +88,18 @@ Page({
     })
   },
 
+  onTabType(event){
+    const type = event.currentTarget.dataset.type;
+    console.log(event)
+    wx.navigateTo({
+      url: `/pages/list/list?type=${type}`
+    })
+  },
+
   onTabNode(event){
     const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/node/node?id=${id}`,
+      url: `/pages/node/node?id=${id}`
     })
   }
 })

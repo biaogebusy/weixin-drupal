@@ -1,5 +1,15 @@
 @import '/assets/styles/index.wxss';
 
+.article-type{
+  display: flex;
+  background-color: #ddd;
+}
+
+.article-type .item{
+  padding: 7px 14px;
+  color: #576b95;
+}
+
 .list {
   display: flex;
   align-items: center;
