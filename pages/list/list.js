@@ -1,4 +1,4 @@
-// pages/list/list.js
+const ArticleService = require('../../utils/service/article.js');
 Page({
 
   /**
@@ -16,8 +16,27 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.setData({
+    const type = options.type;
+    let articles = [];
+    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed').then(res => {
+      console.log(res)
       
+      if (res.included) {
+        let myObj = {};
+        const imagesList = res.included.map(function (obj) {
+          myObj[obj.id] = `https://api.zhaobg.com${obj.attributes.uri.url}`;
+        })
+        this.setData({
+          imagesList: myObj
+        })
+      }
+
+      articles = res.data;
+      const list = articles.filter(article => article.attributes.field_type.indexOf(type) > -1)
+      // console.log(list)
+      this.setData({
+        articles: list
+      })
     })
   },
 

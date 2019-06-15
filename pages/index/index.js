@@ -25,7 +25,6 @@ Page({
 
   getArticles(callBack) {
     ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed',callBack).then(res =>{
-       console.log(res);
        if (res.included) {
          let myObj = {};
          const imagesList = res.included.map(function (obj) {
@@ -34,7 +33,6 @@ Page({
          this.setData({
            imagesList: myObj
          })
-         console.log(this.data.imagesList)
        }
        const articles = res.data;
        this.setData({
@@ -65,7 +63,6 @@ Page({
 
   setStiky(){
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
-    console.log(stikyArticles);
     const date = new Date(stikyArticles[0].attributes.changed);
     this.setData({
       stiky: stikyArticles[0],
@@ -75,7 +72,6 @@ Page({
 
   onTabType(event){
     const type = event.currentTarget.dataset.type;
-    console.log(event)
     wx.navigateTo({
       url: `/pages/list/list?type=${type}`
     })
