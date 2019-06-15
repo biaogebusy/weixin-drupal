@@ -1,3 +1,4 @@
 @import '/assets/styles/base.wxss';
 @import '/assets/styles/theme.wxss';
 @import '/assets/styles/loading.wxss';
+@import '/assets/styles/component.wxss';

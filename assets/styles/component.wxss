@@ -1,0 +1,2 @@
+@import '/assets/styles/component/list.wxss';
+@import '/assets/styles/component/stiky.wxss';

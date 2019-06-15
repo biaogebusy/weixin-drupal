@@ -20,7 +20,7 @@ Page({
     let articles = [];
     ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed').then(res => {
       console.log(res)
-      
+
       if (res.included) {
         let myObj = {};
         const imagesList = res.included.map(function (obj) {
@@ -35,8 +35,16 @@ Page({
       const list = articles.filter(article => article.attributes.field_type.indexOf(type) > -1)
       // console.log(list)
       this.setData({
-        articles: list
+        articles: list,
+        loading: false
       })
+    })
+  },
+
+  onTabNode(event) {
+    const id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/node/node?id=${id}`
     })
   },
 

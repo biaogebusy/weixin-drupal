@@ -1,0 +1,39 @@
+.box-list .author {
+  font-size: 30rpx;
+}
+
+.box-list image {
+  width: 100%;
+  height: 394rpx;
+}
+
+.box-body {
+  font-size: 28rpx;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  place-content: center space-between;
+}
+
+.list .list-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .list-info {
+  font-size: 28rpx;
+  line-height: 1.4;
+}
+
+.list .list-right {
+  width: 182rpx;
+  flex: 0 0 96px;
+  line-height: 0;
+}
+
+.list .list-right image {
+  width: 182rpx;
+  height: 120rpx;
+}
