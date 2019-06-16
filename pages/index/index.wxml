@@ -13,15 +13,15 @@
   <div class="sk-circle12 sk-circle"></div>
 </div>
 <view class='container p-xy-min'>
-  <view class='article-type'>
-    <view class='item' wx:for="{{articleType}}" wx:key="{{item.id}}" bindtap='onTabType' data-type="{{item}}">{{item}}</view>
+  <view class='article-type border-bottom border-shadow m-bottom'>
+    <view class='item text-grey' wx:for="{{articleType}}" wx:key="{{item.id}}" bindtap='onTabType' data-type="{{item}}">{{item}}</view>
   </view>
-  <view wx:if="{{stiky.attributes}}" class='stiky'>
+  <view wx:if="{{stiky.attributes}}" class='stiky' bindtap="onTabNode" data-id="{{stiky.id}}">
     <view class='badge position-absolute text-white'>热门</view>
     <image wx:if="{{imagesList[stiky.relationships.field_image.data.id]}}" class='border-radius' src="{{imagesList[stiky.relationships.field_image.data.id]}}"></image>
     <image wx:if="{{!imagesList[stiky.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
     <view class='stiky-inner p-xy-min position-absolute'>
-      <h2 class="text-white" bindtap="onTabNode" data-id="{{stiky.id}}">{{stiky.attributes.title}}</h2>
+      <h2 class="text-white">{{stiky.attributes.title}}</h2>
       <view class='stiky-inner-footer'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
     </view>
   </view>

@@ -3,6 +3,8 @@
   position: relative;
   width: 710rpx;
   height: 394rpx;
+  overflow: hidden;
+  padding-top: 72rpx;
 }
 
 .stiky .badge {

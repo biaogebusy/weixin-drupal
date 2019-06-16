@@ -2,10 +2,17 @@
 
 .article-type{
   display: flex;
-  background-color: #ddd;
+  background-color: #fff;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .article-type .item{
   padding: 7px 14px;
-  color: #576b95;
+  font-size: 30rpx;
 }

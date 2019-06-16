@@ -72,9 +72,15 @@ Page({
 
   onTabType(event){
     const type = event.currentTarget.dataset.type;
-    wx.navigateTo({
-      url: `/pages/list/list?type=${type}`
-    })
+    if (type === 'All'){
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
+    }else{
+      wx.navigateTo({
+        url: `/pages/list/list?type=${type}`
+      })
+    }
   },
 
   onTabNode(event){

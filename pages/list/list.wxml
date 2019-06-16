@@ -15,13 +15,13 @@
 
 <view class="container p-xy-min">
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="border-bottom border-shadow p-y-min text-default box-list" bindtap="onTabNode" data-id="{{item.id}}">
-  <h3 class="title m-y">{{item.attributes.title}}</h3>
-   <view class='author m-y-min'>文 / {{item.attributes.field_author}}</view>
-   <image style="width:100%" wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
-   <image style="width:100%" wx:if="{{!imagesList[item.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
-      <view class='box-body text-grey'>
+    <h3 class="title m-y">{{item.attributes.title}}</h3>
+    <view class='author m-y-min'>文 / {{item.attributes.field_author}}</view>
+    <image style="width:100%" wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
+    <image style="width:100%" wx:if="{{!imagesList[item.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
+    <view class='box-body text-grey'>
       <view class='m-bottom'>{{item.attributes.body.summary}}</view>
       <span>{{item.attributes.changed}}</span>
-      </view>
+    </view>
   </view>
 </view>
