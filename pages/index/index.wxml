@@ -13,7 +13,7 @@
   <div class="sk-circle12 sk-circle"></div>
 </div>
 <view class='container p-xy-min'>
-  <view class='article-type border-bottom border-shadow m-bottom'>
+  <view class='toolbar border-bottom border-shadow m-bottom'>
     <view class='item text-grey' wx:for="{{articleType}}" wx:key="{{item.id}}" bindtap='onTabType' data-type="{{item}}">{{item}}</view>
   </view>
   <view wx:if="{{stiky.attributes}}" class='stiky' bindtap="onTabNode" data-id="{{stiky.id}}">

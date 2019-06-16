@@ -1,0 +1,16 @@
+.toolbar{
+  display: flex;
+  background-color: #fff;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.toolbar .item{
+  padding: 7px 14px;
+  font-size: 30rpx;
+}
