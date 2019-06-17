@@ -1,4 +1,6 @@
 const ArticleService = require('../../utils/service/article.js');
+
+// see https://github.com/icindy/wxParse
 var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
@@ -31,7 +33,7 @@ Page({
   },
 
   getNode(id, callBack) {
-    ArticleService.getData(`https://api.zhaobg.com/jsonapi/node/article/${id}?include=field_image`, callBack).then(res=>{
+    ArticleService.getData(`https://api.zhaobg.com/jsonapi/node/article/${id}?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image`, callBack).then(res=>{
       console.log(res)
       const node = res.data.attributes;
       let banner = '';

@@ -18,7 +18,7 @@ Page({
     console.log(options)
     const type = options.type;
     let articles = [];
-    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?include=field_image&sort=-changed').then(res => {
+    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
       console.log(res)
 
       if (res.included) {
