@@ -21,27 +21,46 @@ Page({
 
   onLoad() {
     this.getArticles();
+
+    const res = wx.getStorageSync('_res');
+    if (res) {
+      this.setArticle(res)
+    } else {
+      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
+        console.log(res)
+        this.setArticle(res, type);
+
+        // 缓存数据
+        wx.setStorageSync('_res', res);
+      })
+    }
   },
 
   getArticles(callBack) {
-    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed',callBack).then(res =>{
-       if (res.included) {
-         let myObj = {};
-         const imagesList = res.included.map(function (obj) {
-           myObj[obj.id] = `https://api.zhaobg.com${obj.attributes.uri.url}`;
-         })
-         this.setData({
-           imagesList: myObj
-         })
-       }
-       const articles = res.data;
-       this.setData({
-         articles: articles,
-         loading: false
-       });
-       this.setStiky();
-       this.setArticleType();
-     });
+    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed', callBack).then(res => {
+      this.setArticle(res);
+      // 缓存数据
+      wx.setStorageSync('_res', res);
+    });
+  },
+
+  setArticle(res){
+    if (res.included) {
+      let myObj = {};
+      const imagesList = res.included.map(function (obj) {
+        myObj[obj.id] = `https://api.zhaobg.com${obj.attributes.uri.url}`;
+      })
+      this.setData({
+        imagesList: myObj
+      })
+    }
+    const articles = res.data;
+    this.setData({
+      articles: articles,
+      loading: false
+    });
+    this.setStiky();
+    this.setArticleType();
   },
  
   setArticleType(){
