@@ -28,7 +28,7 @@ Page({
     } else {
       ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
         console.log(res)
-        this.setArticle(res, type);
+        this.setArticle(res);
 
         // 缓存数据
         wx.setStorageSync('_res', res);
