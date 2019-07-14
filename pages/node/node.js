@@ -29,27 +29,39 @@ Page({
     this.setData({
       id: options.id
     })
-    this.getNode(this.data.id)
+    
+    const res = wx.getStorageSync('_res');
+    if (res) {
+      this.getNode(this.data.id, res)
+    } else {
+      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
+        console.log(res)
+        this.getNode(this.data.id, res);
+
+        // 缓存数据
+        wx.setStorageSync('_res', res);
+      })
+    }
+
   },
 
-  getNode(id, callBack) {
-    ArticleService.getData(`https://api.zhaobg.com/jsonapi/node/article/${id}?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image`, callBack).then(res=>{
-      console.log(res)
-      const node = res.data.attributes;
-      let banner = '';
-      if (res.included && res.included[0]) {
-        banner = `https://api.zhaobg.com${res.included[0].attributes.uri.url}`
-      } else {
-        banner = '/assets/images/banner-default.jpg'
-      };
-      const date = new Date(node.changed);
-      this.setData({
-        banner: `${banner}`,
-        node: node,
-        date: `${date.getUTCHours()}:${date.getMinutes()}`
-      })
-      WxParse.wxParse('article', 'html', node.body.value, this, 5)
+  getNode(id, res) {
+    console.log(id, res)
+    let nodes = res.data;
+    const nodeData = nodes.filter(article => article['id'] == id);
+    const node = nodeData[0].attributes;
+    const included = res.included;
+    const bannerId = nodeData[0].relationships.field_image.data.id;
+    let banner = included.filter(image => image['id'] == bannerId);
+    const bannerImg = `https://api.zhaobg.com${banner[0].attributes.uri.url}`;
+    console.log(node)
+    const date = new Date(node.changed);
+    this.setData({
+      banner: `${bannerImg}`,
+      node: node,
+      date: `${date.getUTCHours()}:${date.getMinutes()}`
     })
+    WxParse.wxParse('article', 'html', node.body.value, this, 5)
   },
 
   /**
