@@ -25,21 +25,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: "加载中..."
+    })
     // console.log(options)
     this.setData({
       id: options.id
     })
-    
+
     const res = wx.getStorageSync('_res');
     if (res) {
+      wx.hideLoading();
       this.getNode(this.data.id, res)
     } else {
       ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
-        console.log(res)
+        wx.hideLoading();
         this.getNode(this.data.id, res);
 
         // 缓存数据
         wx.setStorageSync('_res', res);
+      }).catch(err => {
+        console.log(err);
+        wx.hideLoading();
       })
     }
 
@@ -61,55 +68,6 @@ Page({
       node: node,
       date: `${date.getUTCHours()}:${date.getMinutes()}`
     })
-    WxParse.wxParse('article', 'html', node.body.value, this, 5)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    WxParse.wxParse('article', 'html', node.body.value, this, 5);
   }
 })

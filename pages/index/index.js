@@ -6,45 +6,44 @@ Page({
   data: {
     bannerImgSrc: '/assets/images/banner-default.jpg',
     articles: [],
-    articleType:[],
+    articleType: [],
     imagesList: [],
-    loading: true,
     stiky: {},
     stikyDate: ''
   },
 
-  onPullDownRefresh(){
-    this.getArticles(()=>{
+  onPullDownRefresh() {
+    this.getArticles(() => {
       wx.stopPullDownRefresh();
     })
   },
 
   onLoad() {
     this.getArticles();
+  },
 
+  getArticles(callBack) {
+    wx.showLoading({
+      title: "加载中..."
+    })
     const res = wx.getStorageSync('_res');
     if (res) {
+      wx.hideLoading();
       this.setArticle(res)
     } else {
-      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
-        console.log(res)
+      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed', callBack).then(res => {
+        wx.hideLoading();
         this.setArticle(res);
-
         // 缓存数据
         wx.setStorageSync('_res', res);
+      }).catch(err =>{
+        console.log(err);
+        wx.hideLoading();
       })
     }
   },
 
-  getArticles(callBack) {
-    ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed', callBack).then(res => {
-      this.setArticle(res);
-      // 缓存数据
-      wx.setStorageSync('_res', res);
-    });
-  },
-
-  setArticle(res){
+  setArticle(res) {
     if (res.included) {
       let myObj = {};
       const imagesList = res.included.map(function (obj) {
@@ -57,19 +56,18 @@ Page({
     const articles = res.data;
     this.setData({
       articles: articles,
-      loading: false
     });
     this.setStiky();
     this.setArticleType();
   },
- 
-  setArticleType(){
+
+  setArticleType() {
     const articleType = [];
-    this.data.articles.forEach(function(article){
-      const types =  article.attributes.field_type;
-      if (types.length > 0){
-        types.forEach(function(type){
-          if (articleType.indexOf(type) == -1){
+    this.data.articles.forEach(function (article) {
+      const types = article.attributes.field_type;
+      if (types.length > 0) {
+        types.forEach(function (type) {
+          if (articleType.indexOf(type) == -1) {
             articleType.push(type)
           }
         })
@@ -80,7 +78,7 @@ Page({
     })
   },
 
-  setStiky(){
+  setStiky() {
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
     const date = new Date(stikyArticles[0].attributes.changed);
     this.setData({
@@ -89,20 +87,20 @@ Page({
     })
   },
 
-  onTabType(event){
+  onTabType(event) {
     const type = event.currentTarget.dataset.type;
-    if (type === 'All'){
+    if (type === 'All') {
       wx.navigateTo({
         url: '/pages/index/index'
       })
-    }else{
+    } else {
       wx.navigateTo({
         url: `/pages/list/list?type=${type}`
       })
     }
   },
 
-  onTabNode(event){
+  onTabNode(event) {
     const id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: `/pages/node/node?id=${id}`

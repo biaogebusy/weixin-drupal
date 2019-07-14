@@ -7,27 +7,31 @@ Page({
   data: {
     articles: [],
     articleType: [],
-    imagesList: [],
-    loading: true
+    imagesList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    wx.showLoading({
+      title: "加载中..."
+    })
     const type = options.type;
-    
     const res = wx.getStorageSync('_res');
     if (res) {
+      wx.hideLoading();
       this.setArticle(res, type)
     } else {
       ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
-        console.log(res)
+        wx.hideLoading();
         this.setArticle(res, type);
 
         // 缓存数据
         wx.setStorageSync('_res', res);
+      }).catch(err =>{
+        console.log(err);
+        wx.hideLoading();
       })
     }
   },
@@ -45,16 +49,15 @@ Page({
     const articles = res.data;
     let list;
 
-    if(type){
+    if (type) {
       list = articles.filter(article => article.attributes.field_type.indexOf(type) > -1)
-    }else{
+    } else {
       list = articles;
     }
-    
+
     // console.log(list)
     this.setData({
-      articles: list,
-      loading: false
+      articles: list
     })
   },
 
