@@ -2,14 +2,36 @@
   "pages": [
     "pages/index/index",
     "pages/node/node",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Drupal 推荐",
+    "navigationBarTitleText": "Drupal 每周推荐",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#5D5F64",
+    "selectedColor": "#5D5F64",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home-sel.png"
+      },
+      {
+        "text": "关于我",
+        "pagePath": "pages/me/me",
+        "iconPath": "assets/images/me.png",
+        "selectedIconPath": "assets/images/me-sel.png"
+      }
+    ]
+  }
 }

@@ -1,4 +1,4 @@
-h1, header-1 {
+h1, .h1, .header-1 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 0.9em;
@@ -6,7 +6,7 @@ h1, header-1 {
   display: block;
 }
 
-h2, header-2 {
+h2, .h2, .header-2 {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 0.34em;
@@ -14,7 +14,7 @@ h2, header-2 {
   display: block;
 }
 
-h3, header-3 {
+h3, .h3, .header-3 {
   font-weight: 700;
   font-size: 15px;
   margin-bottom: 0.34em;
@@ -22,7 +22,7 @@ h3, header-3 {
   display: block;
 }
 
-p, .wxParse-p {
+p, .p, .wxParse-p {
   margin: 0 0 0.8em;
   display: block;
   font-weight: normal;
