@@ -1,4 +1,5 @@
 const ArticleService = require('../../utils/service/article.js');
+const util = require('../../utils/util.js');
 //获取应用实例
 const app = getApp()
 
@@ -54,6 +55,8 @@ Page({
       })
     }
     const articles = res.data;
+    console.log(articles)
+    articles.forEach(article => article.attributes.changed = util.formatTime(new Date(article.attributes.changed)))
     this.setData({
       articles: articles,
     });

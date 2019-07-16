@@ -1,5 +1,5 @@
 const ArticleService = require('../../utils/service/article.js');
-
+const util = require('../../utils/util.js');
 // see https://github.com/icindy/wxParse
 var WxParse = require('../../utils/wxParse/wxParse.js');
 
@@ -62,11 +62,11 @@ Page({
     let banner = included.filter(image => image['id'] == bannerId);
     const bannerImg = `https://api.zhaobg.com${banner[0].attributes.uri.url}`;
     console.log(node)
-    const date = new Date(node.changed);
+    const date = util.formatTime(new Date(node.changed));
     this.setData({
       banner: `${bannerImg}`,
       node: node,
-      date: `${date.getUTCHours()}:${date.getMinutes()}`
+      date: date
     })
     WxParse.wxParse('article', 'html', node.body.value, this, 5);
   }

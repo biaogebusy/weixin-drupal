@@ -1,4 +1,5 @@
 const ArticleService = require('../../utils/service/article.js');
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -47,6 +48,7 @@ Page({
     }
 
     const articles = res.data;
+    articles.forEach(article => article.attributes.changed = util.formatTime(new Date(article.attributes.changed)))
     let list;
 
     if (type) {
