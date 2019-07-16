@@ -27,6 +27,14 @@ p, .p, .wxParse-p {
   display: block;
   font-weight: normal;
   opacity: 0.95;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.font-sm{
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 a {

@@ -1,13 +1,14 @@
 <!--pages/me/me.wxml-->
+<image src='/assets/images/bg.png' class='bg'></image>
 <view class="container p-xy-min">
-    <text class="h2">
+    <h2 class="m-bottom">
     关于 Drupal 每日推荐小程序
-    </text>
-    <view class="p">
+    </h2>
+    <p class="font-sm">
     小程序使用 Drupal jsonapi 提供的数据接口，可方法这里查看：<navigator url="https://api.zhaobg.com">https://api.zhaobg.com</navigator>
-    </view>
+    </p>
     
-    <view class="p">另外也有 Angular 的版本，<navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
-    </view>
-    <view class="p">小程序使用了wx.setStorageSync()进行本地数据的缓存，第一次打开会从 Drupal jsonapi 接口获取 node 列表，并设置缓存，进入列表页或者详情页，直接读取本地缓存。</view>
+    <p class="font-sm">另外也有 Angular 的版本，<navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
+    </p>
+    <p class="font-sm">小程序使用了wx.setStorageSync()进行本地数据的缓存，第一次打开会从 Drupal jsonapi 接口获取 node 列表，并设置缓存，进入列表页或者详情页，直接读取本地缓存。</p>
   </view>

@@ -1,7 +1,7 @@
 <import src="../../utils/wxParse/wxParse.wxml" />
-
+<image src='/assets/images/bg.png' class='bg'></image>
 <view class='node p-xy-min'>
-  <h1>{{node.title}}</h1>
+  <h2>{{node.title}}</h2>
   <p class="m-y text-light">{{node.field_author}} {{date}}</p>
   <image class='thumb' src="{{banner}}"></image>
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
