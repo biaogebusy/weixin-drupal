@@ -13,9 +13,9 @@
     </view>
   </view>
   <view wx:for="{{articles}}" wx:key="{{item.id}}" class="border-bottom border-shadow p-y-min text-default box-list" bindtap="onTabNode" data-id="{{item.id}}">
-    <h3 class="title m-y">{{item.attributes.title}}</h3>
+    <h3 class="title m-top">{{item.attributes.title}}</h3>
     <view class='author m-y-min'>文 / {{item.attributes.field_author}}</view>
-    <image wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
+    <image class='m-y-min' wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
     <image wx:if="{{!imagesList[item.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
     <view class='box-body text-grey'>
       <view class='m-bottom'>{{item.attributes.body.summary}}</view>

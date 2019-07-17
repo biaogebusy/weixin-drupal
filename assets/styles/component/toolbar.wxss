@@ -13,4 +13,5 @@
 .toolbar .item{
   padding: 7px 14px;
   font-size: 30rpx;
+  font-weight: bold;
 }

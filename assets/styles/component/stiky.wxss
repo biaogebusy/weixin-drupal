@@ -5,6 +5,8 @@
   height: 394rpx;
   overflow: hidden;
   padding-top: 72rpx;
+  margin-bottom: 40rpx;
+  border-radius: 8rpx;
 }
 
 .stiky .badge {
@@ -19,6 +21,7 @@
 .stiky image {
   width: 750rpx;
   height: 420rpx;
+  border-radius: 8rpx;
 }
 
 .stiky .badge {

@@ -84,7 +84,8 @@ Page({
   setStiky() {
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
     console.log(stikyArticles)
-    var randomArticle = stikyArticles[util.getRandomInt(5)]
+    var randomArticle = stikyArticles[util.getRandomInt(5)];
+    console.log(randomArticle)
     const date = new Date(randomArticle.attributes.changed);
     this.setData({
       stiky: randomArticle,
