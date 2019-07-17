@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null
   },
 
   /**
@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+  onTapLogin: function(event){
+    this.setData({
+      userInfo: event.detail.userInfo
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
