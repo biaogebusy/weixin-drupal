@@ -17,10 +17,12 @@ const getData = (url, callBack) => {
       }
     })
   })
-  
 }
+
+const api = 'https://api.zhaobg.com';
 
 
 module.exports = {
-  getData: getData
+  getData: getData,
+  api: api
 }

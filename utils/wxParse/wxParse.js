@@ -14,6 +14,7 @@
  **/
 import showdown from './showdown.js';
 import HtmlToJson from './html2json.js';
+const service = require('../service/article.js');
 /**
  * 配置及公有属性
  **/
@@ -56,10 +57,11 @@ function wxParseImgTap(e) {
   var that = this;
   var nowImgUrl = e.target.dataset.src;
   var tagFrom = e.target.dataset.from;
+  var urls = that.data[tagFrom].imageUrls.map(image => `${service.api}${image}`)
   if (typeof (tagFrom) != 'undefined' && tagFrom.length > 0) {
     wx.previewImage({
       current: nowImgUrl, // 当前显示图片的http链接
-      urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
+      urls: urls // 需要预览的图片http链接列表
     })
   }
 }

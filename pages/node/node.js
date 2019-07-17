@@ -1,4 +1,4 @@
-const ArticleService = require('../../utils/service/article.js');
+const service = require('../../utils/service/article.js');
 const util = require('../../utils/util.js');
 // see https://github.com/icindy/wxParse
 var WxParse = require('../../utils/wxParse/wxParse.js');
@@ -38,7 +38,7 @@ Page({
       wx.hideLoading();
       this.getNode(this.data.id, res)
     } else {
-      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
+      service.getData(`${service.api}/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed`).then(res => {
         wx.hideLoading();
         this.getNode(this.data.id, res);
 
@@ -60,7 +60,7 @@ Page({
     const included = res.included;
     const bannerId = nodeData[0].relationships.field_image.data.id;
     let banner = included.filter(image => image['id'] == bannerId);
-    const bannerImg = `https://api.zhaobg.com${banner[0].attributes.uri.url}`;
+    const bannerImg = `${service.api}${banner[0].attributes.uri.url}`;
     console.log(node)
     const date = util.formatTime(new Date(node.changed));
     this.setData({
