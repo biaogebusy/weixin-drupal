@@ -15,6 +15,7 @@ Page({
 
   },
   onTapLogin: function(event){
+    console.log(event.detail.userInfo)
     this.setData({
       userInfo: event.detail.userInfo
     })

@@ -17,8 +17,8 @@
 }
 
 .stiky image {
-  width: 100%;
-  height: 100%;
+  width: 750rpx;
+  height: 420rpx;
 }
 
 .stiky .badge {

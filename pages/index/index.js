@@ -83,9 +83,11 @@ Page({
 
   setStiky() {
     const stikyArticles = this.data.articles.filter(item => item.attributes.sticky === true);
-    const date = new Date(stikyArticles[0].attributes.changed);
+    console.log(stikyArticles)
+    var randomArticle = stikyArticles[util.getRandomInt(5)]
+    const date = new Date(randomArticle.attributes.changed);
     this.setData({
-      stiky: stikyArticles[0],
+      stiky: randomArticle,
       stikyDate: `${date.getUTCHours()}:${date.getMinutes()}`
     })
   },

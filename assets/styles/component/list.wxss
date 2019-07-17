@@ -3,8 +3,8 @@
 }
 
 .box-list image {
-  width: 100%;
-  height: 394rpx;
+  width: 750rpx;
+  height: 420rpx;
 }
 
 .box-body {

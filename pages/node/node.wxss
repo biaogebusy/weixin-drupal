@@ -1,5 +1,6 @@
 @import '/assets/styles/index.wxss';
 
 .node .thumb{
-  width: 100vw;
+  width: 750rpx;
+  height: 420rpx;
 }

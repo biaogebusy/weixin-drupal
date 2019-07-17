@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getRandomInt
 }
