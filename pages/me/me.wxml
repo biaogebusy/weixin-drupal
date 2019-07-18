@@ -4,7 +4,7 @@
   <view wx:if="{{!userInfo}}" class='p-yx m-top'>
     <button class="login-btn m-y" open-type="getUserInfo" bindgetuserinfo="onTapLogin">登录</button>
   </view>
-  <view wx:else>
+  <!-- <view wx:else>
     <h2 class="m-bottom">
       关于 Drupal 每日推荐小程序
     </h2>
@@ -17,6 +17,23 @@
       <navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
     </p>
     <p class="font-sm">该小程序使用了 wx.setStorageSync() 进行本地数据的缓存，第一次打开会从 Drupal jsonapi 接口获取 node 列表，并设置缓存，进入列表页或者详情页，直接读取本地缓存。</p>
+  </view> -->
+
+  <view class="empty" wx:else>
+  <image class="empty-image" src="/assets/images/round_check_fill.png"></image>
+  <view class="empty-text text-grey">
+  <h2 class="text-center">关于 Drupal 每日推荐小程序</h2>
+  <p class="font-sm">
+      小程序使用 Drupal jsonapi 提供的数据接口：
+      <navigator url="https://api.zhaobg.com">https://api.zhaobg.com</navigator>
+    </p>
+
+    <p class="font-sm">另外也有 Angular 的版本：
+      <navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
+    </p>
+    <p class="font-sm">后期有空也会加上 Backbone，React 版本。</p>
   </view>
+  
+</view>
 
 </view>
