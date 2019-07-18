@@ -14,10 +14,10 @@
 }
 
 .box-list image {
-  width: calc(100% + 40rpx);
+  width: calc(100% + 64rpx);
   height: 420rpx;
-  margin-left: -20rpx;
-  margin-right: -20rpx;
+  margin-left: -32rpx;
+  margin-right: -32rpx;
   position: relative;
   max-width: none;
 }
