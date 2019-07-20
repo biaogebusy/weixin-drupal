@@ -1,6 +1,6 @@
 /* pages/me/me.wxss */
 @import '/assets/styles/index.wxss';
-
+@import '/components/login/login.wxss';
 .empty {
   display: flex;
   flex-direction: column;
@@ -24,15 +24,11 @@
   line-height: 40rpx;
 }
 
-.login-btn {
-  margin-top: 45vh;
-}
-
 .info {
   border-left: 4px solid #27b06e;
   padding-left: 10px;
 }
 
 .info p {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }

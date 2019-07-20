@@ -2,28 +2,36 @@
 <image src='/assets/images/bg.png' class='bg'></image>
 <view class="container p-xy-min">
   <view wx:if="{{!userInfo}}" class='p-yx m-top'>
-    <button class="login-btn m-y" open-type="getUserInfo" bindgetuserinfo="onTapLogin">登录</button>
+    <login bindonLogin="onTabLogin"></login>
   </view>
 
-  <view class="empty" wx:else>
-  <image class="empty-image" src="/assets/images/round_check_fill.png"></image>
+  <view wx:else>
+  <view class="login-card">
+    <view class="login-head">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="login-info">
+      <view class="login-text">{{userInfo.nickName}}</view>
+      <view class="login-tips">{{userInfo.country}}</view>
+    </view>
+  </view>
+  <view class="empty">
+    <image class="empty-image" src="/assets/images/round_check_fill.png"></image>
   <view class="empty-text text-grey">
   <h2 class="text-center">关于 Drupal 每日推荐小程序</h2>
   <p class="font-sm">
-      小程序使用 Drupal jsonapi 提供的数据接口：
-      <navigator url="https://api.zhaobg.com">https://api.zhaobg.com</navigator>
-    </p>
-
-    <p class="font-sm">另外也有 Angular 的版本：
+      这只是个使用 Drupal jsonapi 提供数据接口的小程序例子，另外也有 Angular 的 Demo 版本：
       <navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
     </p>
-    <p class="font-sm">后期有空也会加上 Backbone，React 版本。</p>
+    <p class="font-sm">有时间和精力也会加上 Backbone，React 版本，更好的体 Drupal jsonapi 提供强大的接口数据能力。</p>
     <view class="info">
       <p class="font-sm">微信：biaogebusy</p>
       <p class="font-sm">知乎专栏：前端茶馆</p>
       <p class="font-sm">Drupal 每周推荐：361323428</p>
     </view>
   </view>
+  </view>
+  
   
 </view>
 
