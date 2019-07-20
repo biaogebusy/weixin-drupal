@@ -18,6 +18,11 @@
       <navigator url="https://angular.zhaobg.com/">https://angular.zhaobg.com</navigator>
     </p>
     <p class="font-sm">后期有空也会加上 Backbone，React 版本。</p>
+    <view class="info">
+      <p class="font-sm">微信：biaogebusy</p>
+      <p class="font-sm">知乎专栏：前端茶馆</p>
+      <p class="font-sm">Drupal 每周推荐：361323428</p>
+    </view>
   </view>
   
 </view>

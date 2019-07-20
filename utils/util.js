@@ -18,7 +18,15 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+function onTabNode(event) {
+  const id = event.currentTarget.dataset.id;
+  wx.navigateTo({
+    url: `/pages/node/node?id=${id}`
+  })
+}
+
 module.exports = {
-  formatTime: formatTime,
-  getRandomInt
+  formatTime,
+  getRandomInt,
+  onTabNode
 }

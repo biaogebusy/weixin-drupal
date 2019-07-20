@@ -1,4 +1,7 @@
 // components/card/card.js
+
+const util = require('../../utils/util.js');
+
 Component({
   /**
    * 组件的属性列表
@@ -23,6 +26,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTabNode(event) {
+      util.onTabNode(event)
+    }
   }
 })

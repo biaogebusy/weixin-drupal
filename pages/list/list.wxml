@@ -1,4 +1,4 @@
 <image src='/assets/images/bg.png' class='bg'></image>
 <view class="container p-xy-min">
-  <card wx:for="{{articles}}" wx:key="{{item.id}}" bindtap="onTabNode" data-id="{{item.id}}" item="{{item}}" imagesList="{{imagesList}}"></card>
+  <card wx:for="{{articles}}" wx:key="{{item.id}}" item="{{item}}" imagesList="{{imagesList}}"></card>
 </view>

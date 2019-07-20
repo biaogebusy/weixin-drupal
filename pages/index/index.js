@@ -108,9 +108,6 @@ Page({
   },
 
   onTabNode(event) {
-    const id = event.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/node/node?id=${id}`
-    })
+    util.onTabNode(event)
   }
 })

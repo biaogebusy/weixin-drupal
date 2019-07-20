@@ -62,12 +62,5 @@ Page({
     this.setData({
       articles: list
     })
-  },
-
-  onTabNode(event) {
-    const id = event.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/node/node?id=${id}`
-    })
   }
 })

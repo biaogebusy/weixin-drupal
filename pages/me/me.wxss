@@ -8,7 +8,7 @@
   align-items: center;
   margin: 37rpx 27rpx;
   padding: 40rpx;
-  background: #FFFFFF;
+  background: #fff;
   box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
   border-radius: 13rpx;
 }
@@ -22,4 +22,17 @@
 .empty-text {
   font-size: 28rpx;
   line-height: 40rpx;
+}
+
+.login-btn {
+  margin-top: 45vh;
+}
+
+.info {
+  border-left: 4px solid #27b06e;
+  padding-left: 10px;
+}
+
+.info p {
+  margin-bottom: 10px;
 }
