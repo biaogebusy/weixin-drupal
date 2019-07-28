@@ -11,6 +11,7 @@ const getData = (url, callBack) => {
       },
       fail: err => {
         console.log('Api fetch fail!')
+        reject(err)
       },
       complete: () => {
         callBack && callBack();
