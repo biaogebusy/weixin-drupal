@@ -21,7 +21,6 @@ const getData = (url, callBack) => {
 
 const api = 'https://api.zhaobg.com';
 
-
 module.exports = {
   getData: getData,
   api: api

@@ -1,4 +1,3 @@
-const ArticleService = require('../../utils/service/article.js');
 const util = require('../../utils/util.js');
 const service = require('../../utils/service/article.js');
 //获取应用实例
@@ -33,7 +32,7 @@ Page({
       wx.hideLoading();
       this.setArticle(res)
     } else {
-      ArticleService.getData(`${service.api}/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed`, callBack).then(res => {
+      service.getData(`${service.api}/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed`, callBack).then(res => {
         wx.hideLoading();
         this.setArticle(res);
         // 缓存数据
