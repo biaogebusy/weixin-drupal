@@ -22,6 +22,10 @@ h3, .h3, .header-3 {
   display: block;
 }
 
+h1,h2,h3,h4,h5,h6{
+  color: rgba(0, 0, 0, 0.87);
+}
+
 p, .p, .wxParse-p {
   margin: 0 0 0.8em;
   display: block;
@@ -48,6 +52,6 @@ image {
 page {
   font-size: 32rpx;
   line-height: 1.4;
-  color: #333;
+  color: rgba(0, 0, 0, 0.87);
   padding-bottom: 100rpx;
 }

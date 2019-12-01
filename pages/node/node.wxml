@@ -2,7 +2,7 @@
 <image src='/assets/images/bg.png' class='bg'></image>
 <view class='node p-xy-min'>
   <h2>{{node.title}}</h2>
-  <p class="m-y text-light">{{node.field_author}} {{date}}</p>
+  <p class="m-y-min text-light">{{node.field_author}} {{date}}</p>
   <image class='thumb' src="{{banner}}"></image>
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>
