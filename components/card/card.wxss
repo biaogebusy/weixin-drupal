@@ -1,0 +1,27 @@
+@import '/assets/styles/index.wxss';
+.box-list {
+  box-shadow: 0 4rpx 2rpx -2rpx rgba(0, 0, 0, 0.2),
+                0 2rpx 2rpx 0 rgba(0, 0, 0, 0.14),
+                0 2rpx 6rpx 0 rgba(0, 0, 0, 0.12);
+  padding: 0 20rpx 20rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  margin-bottom: 40rpx;
+}
+
+.box-list .author {
+  font-size: 30rpx;
+}
+
+.box-list image {
+  width: calc(100% + 64rpx);
+  height: 420rpx;
+  margin-left: -32rpx;
+  margin-right: -32rpx;
+  position: relative;
+  max-width: none;
+}
+
+.box-body {
+  font-size: 28rpx;
+}
