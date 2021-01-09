@@ -1,4 +1,5 @@
 const ArticleService = require('../../utils/service/article.js');
+const base = require('../../utils/service/base.js');
 const util = require('../../utils/util.js');
 Page({
 
@@ -24,7 +25,7 @@ Page({
       wx.hideLoading();
       this.setArticle(res, type)
     } else {
-      ArticleService.getData('https://api.zhaobg.com/jsonapi/node/article?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed').then(res => {
+      ArticleService.getData(`${base.getApiUrl()}${base.getNodePath()}?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed`).then(res => {
         wx.hideLoading();
         this.setArticle(res, type);
 
@@ -40,7 +41,7 @@ Page({
     if (res.included) {
       let myObj = {};
       const imagesList = res.included.map(function (obj) {
-        myObj[obj.id] = `https://api.zhaobg.com${obj.attributes.uri.url}`;
+        myObj[obj.id] = `${base.getApiUrl()}${obj.attributes.uri.url}`;
       })
       this.setData({
         imagesList: myObj
