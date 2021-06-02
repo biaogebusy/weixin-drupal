@@ -1,10 +1,10 @@
 <view class="border-shadow p-y-min text-default box-list" bindtap="onTabNode" data-id="{{item.id}}">
-  <image class='m-bottom-min' wx:if="{{imagesList[item.relationships.field_image.data.id]}}" src="{{imagesList[item.relationships.field_image.data.id]}}"></image>
-  <image class='m-bottom-min' wx:if="{{!imagesList[item.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
+  <image class='m-bottom-min' wx:if="{{item.media.field_media_image.uri.url}}" src="https://api.zhaobg.com/{{item.media.field_media_image.uri.url}}"></image>
+  <!-- <image class='m-bottom-min' wx:if="{{!item.media.field_media_image.uri.url]}}" src="/assets/images/thumb.jpg"></image> -->
   <view class='box-body text-grey'>
-    <h3 class="title">{{item.attributes.title}}</h3>
-  <view class='author text-grey m-y-min'>文 / {{item.attributes.field_author}}</view>
-    <view class='m-bottom'>{{item.attributes.body.summary}}</view>
-    <span>{{item.attributes.changed}}</span>
+    <h3 class="title">{{item.title}}</h3>
+  <view class='author text-grey m-y-min'>文 / {{item.field_author}}</view>
+    <view class='m-bottom'>{{item.body.summary || item.body.value}}</view>
+    <span>{{item.changed}}</span>
   </view>
 </view>

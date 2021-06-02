@@ -1,5 +1,5 @@
 const apiUrl = 'https://api.zhaobg.com';
-const nodePath = '/jsonapi/node/article';
+const nodePath = '/api/v1/node';
 
 module.exports = {
   getApiUrl(){

@@ -9,9 +9,6 @@ Component({
   properties: {
     item: {
       type: Object
-    },
-    imagesList: {
-      type: Object
     }
   },
 

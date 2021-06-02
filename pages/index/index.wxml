@@ -3,7 +3,7 @@
   <view class='toolbar border-bottom border-shadow m-bottom'>
     <view class='item text-grey' wx:for="{{articleType}}" wx:key="{{item.id}}" bindtap='onTabType' data-type="{{item}}">{{item}}</view>
   </view>
-  <view wx:if="{{stiky.attributes}}" class='stiky' bindtap="onTabNode" data-id="{{stiky.id}}">
+  <!-- <view wx:if="{{stiky.attributes}}" class='stiky' bindtap="onTabNode" data-id="{{stiky.id}}">
     <view class='badge position-absolute text-white'>推荐</view>
     <image wx:if="{{imagesList[stiky.relationships.field_image.data.id]}}" class='border-radius' src="{{imagesList[stiky.relationships.field_image.data.id]}}"></image>
     <image wx:if="{{!imagesList[stiky.relationships.field_image.data.id]}}" src="/assets/images/thumb.jpg"></image>
@@ -11,6 +11,6 @@
       <h2 class="text-white">{{stiky.attributes.title}}</h2>
       <view class='stiky-inner-footer'>{{stiky.attributes.field_author}} {{stikyDate}}</view>
     </view>
-  </view>
-    <card wx:for="{{articles}}" wx:key="{{item.id}}" item="{{item}}" imagesList="{{imagesList}}"></card>
+  </view> -->
+    <card wx:for="{{articles}}" wx:key="{{item.id}}" item="{{item}}"></card>
 </view>

@@ -33,7 +33,16 @@ Page({
       wx.hideLoading();
       this.setArticle(res)
     } else {
-      ArticleService.getData(`${base.getApiUrl()}${base.getNodePath()}?fields[node--article]=title,field_author,field_type,field_image,sticky,changed,body&include=field_image&sort=-changed`, callBack).then(res => {
+      const params = [
+        'fields[node--blog]=title,changed,body,media,field_tags,drupal_internal__nid,path,category',
+        'include=category,field_tags,media,media.field_media_image',
+        'fields[taxonomy_term--blog_category]=name',
+        'fields[taxonomy_term--tags]=name',
+        'fields[file--file]=uri',
+        'sort=-changed',
+        'jsonapi_include=1',
+      ].join('&');
+      ArticleService.getData(`${base.getApiUrl()}${base.getNodePath()}/blog?${params}`, callBack).then(res => {
         wx.hideLoading();
         this.setArticle(res);
         // 缓存数据
@@ -46,18 +55,10 @@ Page({
   },
 
   setArticle(res) {
-    if (res.included) {
-      let myObj = {};
-      const imagesList = res.included.map(function (obj) {
-        myObj[obj.id] = `${base.getApiUrl()}${obj.attributes.uri.url}`;
-      })
-      this.setData({
-        imagesList: myObj
-      })
-    }
+    console.log(res)
     const articles = res.data;
     console.log(articles)
-    articles.forEach(article => article.attributes.changed = util.formatTime(new Date(article.attributes.changed)))
+    articles.forEach(article => article.changed = util.formatTime(new Date(article.changed)))
     this.setData({
       articles: articles,
     });

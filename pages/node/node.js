@@ -39,7 +39,7 @@ Page({
       wx.hideLoading();
       this.getNode(this.data.id, res)
     } else {
-      ArticleService.getData(`${base.getApiUrl()}${base.getNodePath()}?fields[node--article]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed`).then(res => {
+      ArticleService.getData(`${base.getApiUrl()}${base.getNodePath()}?fields[node--blog]=title,field_author,field_type,field_image,changed,body&include=field_image&sort=-changed&jsonapi_include=1`).then(res => {
         wx.hideLoading();
         this.getNode(this.data.id, res);
 
